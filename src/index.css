@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Display:wght@400;700&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Design System Base Styles */
+@layer base {
+  /* Root variables for consistent theming */
+  :root {
+    --color-charcoal-ink: #0F1419;
+    --color-ivory-mist: #F9F8F5;
+    --color-brass-accent: #BFA46F;
+    --color-signal-white: #FFFFFF;
+  }
+
+  /* Base typography and accessibility */
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* Account for fixed header */
+  }
+
+  body {
+    @apply bg-ivory-mist text-charcoal-ink font-sans antialiased;
+    font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+  }
+
+  /* Focus styles for accessibility */
+  *:focus {
+    @apply outline-none ring-2 ring-brass-accent ring-offset-2 ring-offset-ivory-mist;
+  }
+
+  /* Skip link for screen readers */
+  .skip-link {
+    @apply absolute -top-10 left-4 bg-charcoal-ink text-ivory-mist px-4 py-2 rounded-md z-50 focus:top-4;
+  }
+}
+
+@layer components {
+  /* Typography Components */
+  .heading-display {
+    @apply font-serif font-bold text-charcoal-ink leading-tight tracking-tight text-center;
+  }
+
+  .heading-primary {
+    @apply heading-display text-4xl lg:text-6xl text-center;
+  }
+
+  .heading-secondary {
+    @apply heading-display text-3xl lg:text-4xl text-center;
+  }
+
+  .heading-tertiary {
+    @apply heading-display text-2xl lg:text-3xl text-center;
+  }
+
+  .body-large {
+    @apply font-sans text-lg lg:text-xl text-charcoal-ink leading-relaxed text-center;
+  }
+
+  .body-regular {
+    @apply font-sans text-base text-charcoal-ink leading-relaxed text-center;
+  }
+
+  .body-small {
+    @apply font-sans text-sm text-charcoal-ink/80 leading-relaxed text-center;
+  }
+
+  .data-display {
+    @apply font-mono font-bold text-charcoal-ink tabular-nums text-center;
+  }
+
+  /* Button Components */
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-8 py-4 bg-brass-accent text-ivory-mist font-semibold text-lg rounded-full;
+    @apply hover:bg-brass-600 focus:bg-brass-600 active:bg-brass-700;
+    @apply transform hover:scale-105 transition-all duration-300;
+    @apply shadow-lg hover:shadow-xl;
+    @apply disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-8 py-4 border-2 border-brass-accent text-brass-accent font-semibold text-lg rounded-full;
+    @apply hover:bg-brass-accent hover:text-ivory-mist focus:bg-brass-accent focus:text-ivory-mist;
+    @apply transition-all duration-300;
+    @apply disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center px-6 py-3 text-charcoal-ink font-medium;
+    @apply hover:text-brass-accent focus:text-brass-accent;
+    @apply transition-colors duration-300;
+  }
+
+  /* Card Components */
+  .card-elevated {
+    @apply bg-signal-white rounded-2xl shadow-lg border border-charcoal-ink/10;
+    @apply hover:shadow-xl hover:border-brass-accent/30 transition-all duration-300;
+  }
+
+  .card-flat {
+    @apply bg-signal-white rounded-xl border border-charcoal-ink/10;
+    @apply hover:border-brass-accent/50 transition-all duration-300;
+  }
+
+  /* Form Components */
+  .form-input {
+    @apply w-full px-4 py-3 border border-charcoal-ink/20 rounded-xl bg-signal-white text-charcoal-ink;
+    @apply focus:border-brass-accent focus:ring-2 focus:ring-brass-accent/20;
+    @apply placeholder:text-charcoal-ink/50 transition-all duration-300;
+  }
+
+  .form-label {
+    @apply block text-sm font-semibold text-charcoal-ink mb-2;
+  }
+
+  /* Navigation Components */
+  .nav-link {
+    @apply text-charcoal-ink font-medium hover:text-brass-accent focus:text-brass-accent;
+    @apply transition-colors duration-300 relative;
+  }
+
+  .nav-link::after {
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-brass-accent transition-all duration-300;
+    content: '';
+  }
+
+  .nav-link:hover::after,
+  .nav-link:focus::after,
+  .nav-link.active::after {
+    @apply w-full;
+  }
+
+  /* Layout Components */
+  .container-luxury {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-padding {
+    @apply py-16 lg:py-24;
+  }
+
+  .content-spacing {
+    @apply space-y-6 lg:space-y-8;
+  }
+
+  /* Footer specific improvements */
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  @media (min-width: 1024px) {
+    .footer-grid {
+      grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+      gap: 3rem;
+    }
+  }
+
+  /* Accessibility Helpers */
+  .sr-only {
+    @apply absolute w-px h-px p-0 -m-px overflow-hidden whitespace-nowrap border-0;
+    clip: rect(0, 0, 0, 0);
+  }
+
+  /* Animation Classes */
+  .animate-on-scroll {
+    @apply opacity-0 translate-y-8 transition-all duration-700 ease-out;
+  }
+
+  .animate-on-scroll.in-view {
+    @apply opacity-100 translate-y-0;
+  }
+}
+
+@layer utilities {
+  /* Custom utility classes */
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    .btn-primary {
+      @apply border-2 border-charcoal-ink;
+    }
+    
+    .card-elevated {
+      @apply border-2 border-charcoal-ink/30;
+    }
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  /* Print styles */
+  @media print {
+    .no-print {
+      display: none !important;
+    }
+    
+    body {
+      @apply bg-white text-black;
+    }
+  }
+}
