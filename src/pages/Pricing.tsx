@@ -206,7 +206,7 @@ const Pricing: React.FC<PricingProps> = ({ onNavigate }) => {
               {
                 value: '6 months',
                 label: 'Payback Period',
-                description: 'Most clients recover their investment within the first 6 months'
+                description: 'Most clients recover their investment within the first 3 months'
               },
               {
                 value: '95%',
