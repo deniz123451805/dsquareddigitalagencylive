@@ -237,7 +237,7 @@ ${formData.message}
                   <p className="body-regular text-charcoal-ink/80 mb-6">
                     Book a free 30-minute strategy session to discuss your digital marketing goals.
                   </p>
-                  <div className="tidycal-embed" data-path="dsquareddigitalagency"></div>
+                  <div className="tidycal-embed" data-path="dsquareddigitalagency"><script src="https://asset-tidycal.b-cdn.net/js/embed.js" async></script></div>
                 </div>
               </div>
             </div>
