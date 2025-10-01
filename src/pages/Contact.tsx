@@ -133,7 +133,7 @@ ${formData.message}
                         value={formData.phone}
                         onChange={handleInputChange}
                         className="form-input"
-                        placeholder="+1 (555) 123-4567"
+                        placeholder="+1 (523) 128-4196"
                       />
                     </div>
                     
@@ -212,7 +212,7 @@ ${formData.message}
                       </div>
                       <div>
                         <h4 className="body-regular font-semibold text-charcoal-ink">Call Us</h4>
-                        <p className="body-regular text-charcoal-ink/80">+1 (555) 123-4567</p>
+                        <p className="body-regular text-charcoal-ink/80">+1 (523) 128-4196</p>
                       </div>
                     </div>
                     
