@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Share2, Bot, Search, TrendingUp } from 'lucide-react';
+import { ArrowRight, Share2, Search, Target, Bot, Palette, BarChart } from 'lucide-react';
 
 type Page = 'home' | 'about' | 'services' | 'pricing' | 'blog' | 'contact' | 
            'social-media' | 'seo-content' | 'paid-advertising' | 'marketing-automation' | 'brand-strategy' | 'analytics-reporting';
@@ -12,67 +12,99 @@ const Services: React.FC<ServicesProps> = ({ onNavigate }) => {
   const services = [
     {
       icon: Share2,
-      title: 'Organic and Paid Social Media Management',
-      description: 'Comprehensive social media strategies that build communities and drive conversions across all major platforms.',
+      title: 'Social Media Management',
+      description: 'Build engaged communities and convert followers into customers with strategic social media management across all major platforms.',
       features: [
-        'Organic Social Media Management',
-        'Content Creation & Curation',
+        'Content Strategy & Creation',
+        'Community Management & Engagement',
         'Paid Social Media Advertising',
-        'Community Building & Engagement',
         'Influencer Partnership Management',
-        'Social Media Analytics & Reporting'
+        'Social Media Analytics & Reporting',
+        'Brand Voice Development'
       ],
-      ctaText: 'Social Media Marketing',
+      ctaText: 'Explore Social Media Services',
       pageId: 'social-media' as Page,
       image: 'https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg?auto=compress&cs=tinysrgb&w=800'
     },
     {
-      icon: Bot,
-      title: 'Workflow & Process Automation',
-      description: 'AI-powered automation solutions that streamline your marketing operations and personalize customer experiences.',
-      features: [
-        'Machine Learning with personalised data inputs',
-        'Advanced Data Analysis & Insights',
-        'Automated Marketing Operations',
-        'Customer Journey Automation',
-        'Lead Scoring & Nurturing Systems',
-        'Performance Optimization Algorithms'
-      ],
-      ctaText: 'Automation and AI',
-      pageId: 'marketing-automation' as Page,
-      image: 'https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=800'
-    },
-    {
       icon: Search,
-      title: 'Search Engine Advertising and Organic SEO',
-      description: 'Complete search marketing solutions that drive qualified traffic and improve your online visibility.',
+      title: 'SEO & Content Marketing',
+      description: 'Dominate search results and attract qualified leads with comprehensive SEO strategies and compelling content marketing.',
       features: [
-        'Onsite and Offsite SEO solutions',
-        'Paid Google Ads Management',
-        'Quarterly/Monthly Analytics Reports',
         'Technical SEO Optimization',
+        'Keyword Research & Strategy',
+        'Content Creation & Optimization',
+        'Link Building & Authority Development',
         'Local SEO & Google My Business',
-        'Conversion Rate Optimization'
+        'SEO Analytics & Performance Tracking'
       ],
-      ctaText: 'Website Marketing',
+      ctaText: 'Boost Your Search Rankings',
       pageId: 'seo-content' as Page,
       image: 'https://images.pexels.com/photos/270404/pexels-photo-270404.jpeg?auto=compress&cs=tinysrgb&w=800'
     },
     {
-      icon: TrendingUp,
-      title: 'General Marketing Strategy and Management',
-      description: 'Strategic marketing consultation and comprehensive brand development to position your business for success.',
+      icon: Target,
+      title: 'Paid Advertising',
+      description: 'Drive immediate results with strategic paid advertising campaigns across Google, Facebook, LinkedIn, and other platforms.',
       features: [
-        'Marketing Strategy Consultation',
-        'Marketing Systems Setup & Integration',
-        'Rebranding & Brand Design',
-        'Market Research & Competitive Analysis',
-        'Customer Persona Development',
-        'Multi-Channel Campaign Management'
+        'Google Ads Management',
+        'Facebook & Instagram Advertising',
+        'LinkedIn B2B Campaigns',
+        'Campaign Strategy & Optimization',
+        'Landing Page Development',
+        'ROI Tracking & Reporting'
       ],
-      ctaText: 'Marketing Strategy',
+      ctaText: 'Launch Your Ad Campaigns',
+      pageId: 'paid-advertising' as Page,
+      image: 'https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&w=800'
+    },
+    {
+      icon: Bot,
+      title: 'Marketing Automation',
+      description: 'Streamline your marketing operations with AI-powered automation that nurtures leads and personalizes customer experiences.',
+      features: [
+        'Email Marketing Automation',
+        'Lead Scoring & Nurturing',
+        'Customer Journey Mapping',
+        'CRM Integration & Setup',
+        'Workflow Automation',
+        'Performance Analytics & Optimization'
+      ],
+      ctaText: 'Automate Your Marketing',
+      pageId: 'marketing-automation' as Page,
+      image: 'https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=800'
+    },
+    {
+      icon: Palette,
+      title: 'Brand Strategy',
+      description: 'Build a powerful brand that commands attention, builds trust, and drives customer loyalty in your market.',
+      features: [
+        'Brand Positioning & Strategy',
+        'Visual Identity Design',
+        'Brand Voice & Messaging',
+        'Brand Guidelines Development',
+        'Market Research & Analysis',
+        'Brand Implementation & Rollout'
+      ],
+      ctaText: 'Develop Your Brand',
       pageId: 'brand-strategy' as Page,
       image: 'https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?auto=compress&cs=tinysrgb&w=800'
+    },
+    {
+      icon: BarChart,
+      title: 'Analytics & Reporting',
+      description: 'Transform data into actionable insights with comprehensive analytics and reporting that drives smarter marketing decisions.',
+      features: [
+        'Custom Analytics Dashboards',
+        'Performance Tracking & Monitoring',
+        'Conversion Rate Optimization',
+        'Competitive Intelligence',
+        'ROI Analysis & Attribution',
+        'Strategic Recommendations'
+      ],
+      ctaText: 'Get Data-Driven Insights',
+      pageId: 'analytics-reporting' as Page,
+      image: 'https://images.pexels.com/photos/3184296/pexels-photo-3184296.jpeg?auto=compress&cs=tinysrgb&w=800'
     }
   ];
 
@@ -215,7 +247,7 @@ const Services: React.FC<ServicesProps> = ({ onNavigate }) => {
             </button>
             <button
               onClick={() => onNavigate('pricing')}
-              className="btn-secondary text-xl px-10 py-5"
+              className="btn-secondary text-xl px-10 py-5 border-ivory-mist text-ivory-mist hover:bg-ivory-mist hover:text-charcoal-ink"
             >
               View Pricing
             </button>

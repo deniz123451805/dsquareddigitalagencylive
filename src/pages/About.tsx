@@ -51,7 +51,7 @@ const About: React.FC<AboutProps> = ({ onNavigate }) => {
                 <div className="pt-4">
                   <button
                     onClick={() => onNavigate('contact')}
-                    className="btn-primary"
+                    className="btn-primary mx-auto"
                   >
                     Contact us here!
                     <ArrowRight className="ml-2 h-5 w-5" />
@@ -158,7 +158,7 @@ const About: React.FC<AboutProps> = ({ onNavigate }) => {
                 <div className="pt-4">
                   <button
                     onClick={() => onNavigate('services')}
-                    className="btn-primary"
+                    className="btn-primary mx-auto"
                   >
                     Explore Our Services
                     <ArrowRight className="ml-2 h-5 w-5" />
@@ -181,7 +181,7 @@ const About: React.FC<AboutProps> = ({ onNavigate }) => {
           </p>
           <button
             onClick={() => onNavigate('contact')}
-            className="btn-primary text-xl px-10 py-5"
+            className="btn-primary text-xl px-10 py-5 mx-auto sm:mx-0"
           >
             Let's Talk Strategy
             <ArrowRight className="ml-3 h-6 w-6" />
