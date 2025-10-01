@@ -38,7 +38,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             <div className="lg:col-span-1 space-y-4">
               <div className="flex items-center space-x-3 mb-6">
                 <img 
-                  src="/7.png" 
+                  src="/dsquaredlogo.png" 
                   alt="DsquaredDigital Logo" 
                   className="h-12 w-auto object-contain"
                 />
