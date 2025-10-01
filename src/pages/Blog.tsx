@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Search, Filter, Calendar, ArrowRight, TrendingUp, Users, Target, Bot, Zap } from 'lucide-react';
 
-type Page = 'home' | 'about' | 'services' | 'pricing' | 'blog' | 'contact';
+type Page = 'home' | 'about' | 'services' | 'pricing' | 'blog' | 'contact' | 
+           'social-media' | 'seo-content' | 'paid-advertising' | 'marketing-automation' | 'brand-strategy' | 'analytics-reporting';
 
 interface BlogProps {
   onNavigate?: (page: Page) => void;
@@ -503,6 +504,49 @@ const Blog: React.FC<BlogProps> = ({ onNavigate }) => {
             <button className="btn-primary rounded-full whitespace-nowrap">
               Subscribe Now
             </button>
+          </div>
+          
+          {/* Service Links */}
+          <div className="mt-12 pt-8 border-t border-brass-accent/30">
+            <h3 className="heading-tertiary text-brass-accent mb-6">Explore Our Services</h3>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+              <button
+                onClick={() => onNavigate?.('social-media')}
+                className="text-ivory-mist/80 hover:text-brass-accent transition-colors duration-300 text-sm"
+              >
+                Social Media Management
+              </button>
+              <button
+                onClick={() => onNavigate?.('seo-content')}
+                className="text-ivory-mist/80 hover:text-brass-accent transition-colors duration-300 text-sm"
+              >
+                SEO & Content Marketing
+              </button>
+              <button
+                onClick={() => onNavigate?.('paid-advertising')}
+                className="text-ivory-mist/80 hover:text-brass-accent transition-colors duration-300 text-sm"
+              >
+                Paid Advertising
+              </button>
+              <button
+                onClick={() => onNavigate?.('marketing-automation')}
+                className="text-ivory-mist/80 hover:text-brass-accent transition-colors duration-300 text-sm"
+              >
+                Marketing Automation
+              </button>
+              <button
+                onClick={() => onNavigate?.('brand-strategy')}
+                className="text-ivory-mist/80 hover:text-brass-accent transition-colors duration-300 text-sm"
+              >
+                Brand Strategy
+              </button>
+              <button
+                onClick={() => onNavigate?.('analytics-reporting')}
+                className="text-ivory-mist/80 hover:text-brass-accent transition-colors duration-300 text-sm"
+              >
+                Analytics & Reporting
+              </button>
+            </div>
           </div>
         </div>
       </section>

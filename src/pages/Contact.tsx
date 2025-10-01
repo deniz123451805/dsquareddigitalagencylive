@@ -237,7 +237,20 @@ ${formData.message}
                   <p className="body-regular text-charcoal-ink/80 mb-6">
                     Book a free 30-minute strategy session to discuss your digital marketing goals.
                   </p>
-                  <div className="tidycal-embed" data-path="dsquareddigitalagency"><script src="https://asset-tidycal.b-cdn.net/js/embed.js" async></script></div>
+                  <div className="tidycal-embed" data-path="dsquareddigitalagency"></div>
+                  <button
+                    onClick={() => {
+                      // Scroll to TidyCal widget
+                      const tidycalElement = document.querySelector('.tidycal-embed');
+                      if (tidycalElement) {
+                        tidycalElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                      }
+                    }}
+                    className="btn-primary w-full mt-4"
+                  >
+                    <Calendar className="mr-2 h-5 w-5" />
+                    Schedule Now
+                  </button>
                 </div>
               </div>
             </div>

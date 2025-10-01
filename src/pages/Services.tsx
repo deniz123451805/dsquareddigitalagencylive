@@ -1,7 +1,8 @@
 import React from 'react';
 import { ArrowRight, Share2, Bot, Search, TrendingUp } from 'lucide-react';
 
-type Page = 'home' | 'about' | 'services' | 'pricing' | 'blog' | 'contact';
+type Page = 'home' | 'about' | 'services' | 'pricing' | 'blog' | 'contact' | 
+           'social-media' | 'seo-content' | 'paid-advertising' | 'marketing-automation' | 'brand-strategy' | 'analytics-reporting';
 
 interface ServicesProps {
   onNavigate: (page: Page) => void;
@@ -22,6 +23,7 @@ const Services: React.FC<ServicesProps> = ({ onNavigate }) => {
         'Social Media Analytics & Reporting'
       ],
       ctaText: 'Social Media Marketing',
+      pageId: 'social-media' as Page,
       image: 'https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg?auto=compress&cs=tinysrgb&w=800'
     },
     {
@@ -37,6 +39,7 @@ const Services: React.FC<ServicesProps> = ({ onNavigate }) => {
         'Performance Optimization Algorithms'
       ],
       ctaText: 'Automation and AI',
+      pageId: 'marketing-automation' as Page,
       image: 'https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=800'
     },
     {
@@ -52,6 +55,7 @@ const Services: React.FC<ServicesProps> = ({ onNavigate }) => {
         'Conversion Rate Optimization'
       ],
       ctaText: 'Website Marketing',
+      pageId: 'seo-content' as Page,
       image: 'https://images.pexels.com/photos/270404/pexels-photo-270404.jpeg?auto=compress&cs=tinysrgb&w=800'
     },
     {
@@ -67,6 +71,7 @@ const Services: React.FC<ServicesProps> = ({ onNavigate }) => {
         'Multi-Channel Campaign Management'
       ],
       ctaText: 'Marketing Strategy',
+      pageId: 'brand-strategy' as Page,
       image: 'https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?auto=compress&cs=tinysrgb&w=800'
     }
   ];
@@ -127,7 +132,7 @@ const Services: React.FC<ServicesProps> = ({ onNavigate }) => {
                     
                     <div className="pt-4">
                       <button
-                        onClick={() => onNavigate('contact')}
+                        onClick={() => onNavigate(service.pageId)}
                         className="btn-primary"
                       >
                         {service.ctaText}

@@ -88,12 +88,12 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
             muted
             playsInline
             className="w-full h-full object-cover"
-            poster="https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=1920"
+            poster="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1920"
           >
-            <source src="/src/components/hero1.mp4" type="video/mp4" />
+            <source src="/hero1.mp4" type="video/mp4" />
             {/* Fallback image for slow connections */}
             <img 
-              src="https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=1920" 
+              src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1920" 
               alt="Professional business environment"
               className="w-full h-full object-cover"
             />

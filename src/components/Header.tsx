@@ -54,7 +54,7 @@ const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
             aria-label="DsquaredDigital home"
           >
             <img 
-              src="src/components/dsquaredlogo.png" 
+              src="/dsquaredlogo.png" 
               alt="DsquaredDigital Logo" 
               className="h-12 w-auto group-hover:scale-110 transition-all duration-300 object-contain"
             />

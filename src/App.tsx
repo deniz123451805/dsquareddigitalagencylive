@@ -8,9 +8,16 @@ import Pricing from './pages/Pricing';
 import Blog from './pages/Blog';
 import Contact from './pages/Contact';
 import Policies from './pages/Policies';
+import SocialMediaManagement from './pages/services/SocialMediaManagement';
+import SEOContentMarketing from './pages/services/SEOContentMarketing';
+import PaidAdvertising from './pages/services/PaidAdvertising';
+import MarketingAutomation from './pages/services/MarketingAutomation';
+import BrandStrategy from './pages/services/BrandStrategy';
+import AnalyticsReporting from './pages/services/AnalyticsReporting';
 import Footer from './components/Footer';
 
-type Page = 'home' | 'about' | 'services' | 'pricing' | 'blog' | 'contact' | 'policies';
+type Page = 'home' | 'about' | 'services' | 'pricing' | 'blog' | 'contact' | 'policies' | 
+           'social-media' | 'seo-content' | 'paid-advertising' | 'marketing-automation' | 'brand-strategy' | 'analytics-reporting';
 
 function App() {
   const [currentPage, setCurrentPage] = useState<Page>('home');
@@ -45,6 +52,18 @@ function App() {
         return <Contact />;
       case 'policies':
         return <Policies onNavigate={handleNavigation} />;
+      case 'social-media':
+        return <SocialMediaManagement onNavigate={handleNavigation} />;
+      case 'seo-content':
+        return <SEOContentMarketing onNavigate={handleNavigation} />;
+      case 'paid-advertising':
+        return <PaidAdvertising onNavigate={handleNavigation} />;
+      case 'marketing-automation':
+        return <MarketingAutomation onNavigate={handleNavigation} />;
+      case 'brand-strategy':
+        return <BrandStrategy onNavigate={handleNavigation} />;
+      case 'analytics-reporting':
+        return <AnalyticsReporting onNavigate={handleNavigation} />;
       default:
         return <Home onNavigate={handleNavigation} />;
     }

@@ -20,12 +20,12 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
   ];
 
   const services = [
-    'Social Media Management',
-    'SEO & Content Marketing',
-    'Paid Advertising',
-    'Marketing Automation',
-    'Brand Strategy',
-    'Analytics & Reporting'
+    { name: 'Social Media Management', id: 'social-media' as Page },
+    { name: 'SEO & Content Marketing', id: 'seo-content' as Page },
+    { name: 'Paid Advertising', id: 'paid-advertising' as Page },
+    { name: 'Marketing Automation', id: 'marketing-automation' as Page },
+    { name: 'Brand Strategy', id: 'brand-strategy' as Page },
+    { name: 'Analytics & Reporting', id: 'analytics-reporting' as Page }
   ];
 
   return (
@@ -38,7 +38,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             <div className="lg:col-span-1 space-y-4">
               <div className="flex items-center space-x-3 mb-6">
                 <img 
-                  src="src/components/7.png" 
+                  src="/7.png" 
                   alt="DsquaredDigital Logo" 
                   className="h-12 w-auto object-contain"
                 />
@@ -88,13 +88,13 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             <div className="space-y-4">
               <h4 className="text-lg font-semibold text-brass-accent mb-4">Our Services</h4>
               <ul className="space-y-3">
-                {services.map((service, index) => (
-                  <li key={index}>
+                {services.map((service) => (
+                  <li key={service.id}>
                     <button
-                      onClick={() => onNavigate('services')}
+                      onClick={() => onNavigate(service.id)}
                       className="text-ivory-mist/80 hover:text-brass-accent transition-colors duration-300 text-sm"
                     >
-                      {service}
+                      {service.name}
                     </button>
                   </li>
                 ))}
