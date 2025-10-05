@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- Homepage Images -->
+  <url>
+    <loc>https://www.dsquareddigitalagency.com/</loc>
+    <image:image>
+      <image:loc>https://www.dsquareddigitalagency.com/dsquaredlogo.png</image:loc>
+      <image:caption>DsquaredDigital Agency Logo</image:caption>
+      <image:title>Premium Digital Marketing Agency</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg</image:loc>
+      <image:caption>Professional business team collaboration</image:caption>
+      <image:title>Digital Marketing Team</image:title>
+    </image:image>
+  </url>
+
+  <!-- Service Page Images -->
+  <url>
+    <loc>https://www.dsquareddigitalagency.com/social-media</loc>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg</image:loc>
+      <image:caption>Social media management dashboard interface</image:caption>
+      <image:title>Social Media Management Services</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://www.dsquareddigitalagency.com/seo-content</loc>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/270404/pexels-photo-270404.jpeg</image:loc>
+      <image:caption>SEO analytics and search optimization dashboard</image:caption>
+      <image:title>SEO and Content Marketing</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://www.dsquareddigitalagency.com/paid-advertising</loc>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg</image:loc>
+      <image:caption>Digital advertising campaign management interface</image:caption>
+      <image:title>Paid Advertising Services</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://www.dsquareddigitalagency.com/marketing-automation</loc>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg</image:loc>
+      <image:caption>AI-powered marketing automation dashboard</image:caption>
+      <image:title>Marketing Automation and AI</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://www.dsquareddigitalagency.com/brand-strategy</loc>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg</image:loc>
+      <image:caption>Brand strategy development workshop session</image:caption>
+      <image:title>Brand Strategy and Development</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://www.dsquareddigitalagency.com/analytics-reporting</loc>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/3184296/pexels-photo-3184296.jpeg</image:loc>
+      <image:caption>Advanced analytics and reporting dashboard</image:caption>
+      <image:title>Analytics and Reporting Services</image:title>
+    </image:image>
+  </url>
+
+  <!-- About Page Images -->
+  <url>
+    <loc>https://www.dsquareddigitalagency.com/about</loc>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg</image:loc>
+      <image:caption>Professional office environment with team collaboration</image:caption>
+      <image:title>About DsquaredDigital Team</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg</image:loc>
+      <image:caption>Digital marketing strategy session</image:caption>
+      <image:title>Digital Marketing Expertise</image:title>
+    </image:image>
+  </url>
+
+  <!-- Blog Images -->
+  <url>
+    <loc>https://www.dsquareddigitalagency.com/blog</loc>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg</image:loc>
+      <image:caption>Digital marketing insights and trends</image:caption>
+      <image:title>Digital Marketing Blog</image:title>
+    </image:image>
+  </url>
+
+</urlset>

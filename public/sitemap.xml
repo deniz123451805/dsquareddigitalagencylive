@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+
+  <!-- Homepage - Highest Priority -->
+  <url>
+    <loc>https://www.dsquareddigitalagency.com/</loc>
+    <lastmod>2024-01-15T10:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Main Navigation Pages - High Priority -->
+  <url>
+    <loc>https://www.dsquareddigitalagency.com/about</loc>
+    <lastmod>2024-01-15T10:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.dsquareddigitalagency.com/services</loc>
+    <lastmod>2024-01-15T10:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg</image:loc>
+      <image:caption>Social Media Management Services</image:caption>
+      <image:title>Professional Social Media Management</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/270404/pexels-photo-270404.jpeg</image:loc>
+      <image:caption>SEO and Content Marketing Services</image:caption>
+      <image:title>Search Engine Optimization</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://www.dsquareddigitalagency.com/pricing</loc>
+    <lastmod>2024-01-15T10:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.dsquareddigitalagency.com/contact</loc>
+    <lastmod>2024-01-15T10:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Service Pages - High Priority for Business -->
+  <url>
+    <loc>https://www.dsquareddigitalagency.com/social-media</loc>
+    <lastmod>2024-01-15T10:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg</image:loc>
+      <image:caption>Social Media Management Dashboard</image:caption>
+      <image:title>Social Media Marketing Services</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://www.dsquareddigitalagency.com/seo-content</loc>
+    <lastmod>2024-01-15T10:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/270404/pexels-photo-270404.jpeg</image:loc>
+      <image:caption>SEO Analytics Dashboard</image:caption>
+      <image:title>SEO and Content Marketing</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://www.dsquareddigitalagency.com/paid-advertising</loc>
+    <lastmod>2024-01-15T10:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg</image:loc>
+      <image:caption>Digital Advertising Dashboard</image:caption>
+      <image:title>Paid Advertising Services</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://www.dsquareddigitalagency.com/marketing-automation</loc>
+    <lastmod>2024-01-15T10:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg</image:loc>
+      <image:caption>Marketing Automation Dashboard</image:caption>
+      <image:title>AI Marketing Automation</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://www.dsquareddigitalagency.com/brand-strategy</loc>
+    <lastmod>2024-01-15T10:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg</image:loc>
+      <image:caption>Brand Strategy Workshop</image:caption>
+      <image:title>Brand Strategy Development</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://www.dsquareddigitalagency.com/analytics-reporting</loc>
+    <lastmod>2024-01-15T10:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/3184296/pexels-photo-3184296.jpeg</image:loc>
+      <image:caption>Analytics Dashboard</image:caption>
+      <image:title>Analytics and Reporting Services</image:title>
+    </image:image>
+  </url>
+
+  <!-- Blog Section - Medium Priority, Updated Frequently -->
+  <url>
+    <loc>https://www.dsquareddigitalagency.com/blog</loc>
+    <lastmod>2024-01-20T15:30:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Individual Blog Posts - Medium Priority -->
+  <url>
+    <loc>https://www.dsquareddigitalagency.com/blog/small-business-digital-marketing-strategies-2024</loc>
+    <lastmod>2024-01-20T09:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg</image:loc>
+      <image:caption>Small Business Digital Marketing</image:caption>
+      <image:title>Digital Marketing Strategies for Small Business</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://www.dsquareddigitalagency.com/blog/affordable-web-design-local-businesses</loc>
+    <lastmod>2024-01-18T09:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/270404/pexels-photo-270404.jpeg</image:loc>
+      <image:caption>Affordable Web Design</image:caption>
+      <image:title>Web Design for Local Businesses</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://www.dsquareddigitalagency.com/blog/social-media-management-startups</loc>
+    <lastmod>2024-01-16T09:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg</image:loc>
+      <image:caption>Social Media Management for Startups</image:caption>
+      <image:title>Startup Social Media Strategy</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://www.dsquareddigitalagency.com/blog/content-marketing-small-companies-budget</loc>
+    <lastmod>2024-01-14T09:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg</image:loc>
+      <image:caption>Budget Content Marketing</image:caption>
+      <image:title>Content Marketing on a Budget</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://www.dsquareddigitalagency.com/blog/local-seo-small-businesses</loc>
+    <lastmod>2024-01-12T09:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/3184296/pexels-photo-3184296.jpeg</image:loc>
+      <image:caption>Local SEO for Small Business</image:caption>
+      <image:title>Local Search Engine Optimization</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://www.dsquareddigitalagency.com/blog/email-marketing-small-business</loc>
+    <lastmod>2024-01-10T09:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg</image:loc>
+      <image:caption>Email Marketing for Small Business</image:caption>
+      <image:title>Small Business Email Marketing</image:title>
+    </image:image>
+  </url>
+
+  <!-- Legal/Policy Pages - Lower Priority -->
+  <url>
+    <loc>https://www.dsquareddigitalagency.com/policies</loc>
+    <lastmod>2024-01-15T10:00:00+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+</urlset>
