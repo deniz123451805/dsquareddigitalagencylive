@@ -1,43 +1,36 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Mail, MapPin, Facebook, Twitter, Instagram, Linkedin, ArrowRight, CheckCircle } from 'lucide-react';
 
-type Page = 'home' | 'about' | 'services' | 'pricing' | 'blog' | 'contact' | 'policies' |
-           'social-media' | 'seo-content' | 'paid-advertising' | 'marketing-automation' | 'brand-strategy' | 'analytics-reporting';
-
-interface FooterProps {
-  onNavigate: (page: Page) => void;
-}
-
 // TODO: Replace with your Web3Forms access key from https://web3forms.com
-const WEB3FORMS_KEY = '40f48048-0c79-4466-852c-4ce174e282a5';
+const WEB3FORMS_KEY = 'YOUR_WEB3FORMS_KEY';
 
-const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
+const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
   const [newsletterStatus, setNewsletterStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
   const quickLinks = [
-    { id: 'home' as Page, label: 'Home' },
-    { id: 'about' as Page, label: 'About Us' },
-    { id: 'services' as Page, label: 'Services' },
-    { id: 'pricing' as Page, label: 'Pricing' },
-    { id: 'blog' as Page, label: 'Blog' },
-    { id: 'contact' as Page, label: 'Contact' }
+    { path: '/', label: 'Home' },
+    { path: '/about', label: 'About Us' },
+    { path: '/services', label: 'Services' },
+    { path: '/pricing', label: 'Pricing' },
+    { path: '/blog', label: 'Blog' },
+    { path: '/contact', label: 'Contact' },
   ];
 
   const services = [
-    { name: 'Social Media Management', id: 'social-media' as Page },
-    { name: 'SEO & Content Marketing', id: 'seo-content' as Page },
-    { name: 'Paid Advertising', id: 'paid-advertising' as Page },
-    { name: 'Marketing Automation', id: 'marketing-automation' as Page },
-    { name: 'Brand Strategy', id: 'brand-strategy' as Page },
-    { name: 'Analytics & Reporting', id: 'analytics-reporting' as Page }
+    { path: '/services/social-media', label: 'Social Media Management' },
+    { path: '/services/seo-content', label: 'SEO & Content Marketing' },
+    { path: '/services/paid-advertising', label: 'Paid Advertising' },
+    { path: '/services/marketing-automation', label: 'Marketing Automation' },
+    { path: '/services/brand-strategy', label: 'Brand Strategy' },
+    { path: '/services/analytics-reporting', label: 'Analytics & Reporting' },
   ];
 
   const handleNewsletterSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     const email = formData.get('email') as string;
-
     try {
       const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
@@ -47,7 +40,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           subject: 'New Newsletter Subscription — DsquaredDigital',
           from_name: 'DsquaredDigital Website',
           email,
-          message: `New newsletter subscription request from: ${email}`,
+          message: `New newsletter subscription from: ${email}`,
           botcheck: ''
         })
       });
@@ -71,13 +64,13 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
 
             {/* Company Info */}
             <div className="lg:col-span-1 space-y-4">
-              <div className="flex items-center space-x-3 mb-6">
+              <Link to="/" className="flex items-center space-x-3 mb-6">
                 <img src="/dsquaredlogo.png" alt="DsquaredDigital Logo" className="h-12 w-auto object-contain" />
                 <div>
-                  <h3 className="text-2xl font-serif font-bold text-brass-accent">dsquareddigital</h3>
-                  <p className="text-xs text-ivory-mist/70 tracking-wider uppercase">Premium Digital Marketing</p>
+                  <span className="text-2xl font-serif font-bold text-brass-accent block">dsquareddigital</span>
+                  <span className="text-xs text-ivory-mist/70 tracking-wider uppercase">Premium Digital Marketing</span>
                 </div>
-              </div>
+              </Link>
               <p className="text-ivory-mist/80 leading-relaxed mb-6">
                 A Melbourne-based boutique digital marketing agency built for the AI age.
                 We help businesses get noticed and thrive in the digital sphere.
@@ -101,11 +94,10 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               <h4 className="text-lg font-semibold text-brass-accent mb-4">Quick Links</h4>
               <ul className="space-y-3">
                 {quickLinks.map((link) => (
-                  <li key={link.id}>
-                    <button onClick={() => onNavigate(link.id)}
-                      className="text-ivory-mist/80 hover:text-brass-accent transition-colors duration-300 text-sm">
+                  <li key={link.path}>
+                    <Link to={link.path} className="text-ivory-mist/80 hover:text-brass-accent transition-colors duration-300 text-sm">
                       {link.label}
-                    </button>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -116,11 +108,10 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               <h4 className="text-lg font-semibold text-brass-accent mb-4">Our Services</h4>
               <ul className="space-y-3">
                 {services.map((service) => (
-                  <li key={service.id}>
-                    <button onClick={() => onNavigate(service.id)}
-                      className="text-ivory-mist/80 hover:text-brass-accent transition-colors duration-300 text-sm">
-                      {service.name}
-                    </button>
+                  <li key={service.path}>
+                    <Link to={service.path} className="text-ivory-mist/80 hover:text-brass-accent transition-colors duration-300 text-sm">
+                      {service.label}
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -132,7 +123,6 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               <p className="text-ivory-mist/80 text-sm leading-relaxed mb-4">
                 Subscribe for the latest digital marketing insights and trends.
               </p>
-
               {newsletterStatus === 'success' ? (
                 <div className="flex items-center space-x-2 text-green-400 text-sm py-3">
                   <CheckCircle className="h-4 w-4" />
@@ -143,20 +133,17 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                   <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
                   <input
                     type="email" name="email"
-                    placeholder="Enter your email"
-                    required
+                    placeholder="Enter your email" required
                     className="px-4 py-3 bg-signal-white/10 border border-brass-accent/30 rounded-xl text-ivory-mist placeholder-ivory-mist/60 focus:ring-2 focus:ring-brass-accent focus:border-transparent transition-all duration-300"
                   />
                   <button type="submit" className="btn-primary">
-                    Subscribe
-                    <ArrowRight className="ml-2 h-4 w-4" />
+                    Subscribe <ArrowRight className="ml-2 h-4 w-4" />
                   </button>
                   {newsletterStatus === 'error' && (
                     <p className="text-red-400 text-xs">Something went wrong. Please try again.</p>
                   )}
                 </form>
               )}
-
               <div>
                 <p className="text-ivory-mist/60 text-xs uppercase tracking-wider mb-3">Follow Us</p>
                 <div className="flex space-x-3">
@@ -164,7 +151,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                     { Icon: Facebook, href: 'https://facebook.com/dsquareddigital', label: 'Facebook' },
                     { Icon: Twitter, href: 'https://twitter.com/dsquareddigital', label: 'Twitter' },
                     { Icon: Instagram, href: 'https://instagram.com/dsquareddigital', label: 'Instagram' },
-                    { Icon: Linkedin, href: 'https://linkedin.com/company/dsquareddigital', label: 'LinkedIn' }
+                    { Icon: Linkedin, href: 'https://linkedin.com/company/dsquareddigital', label: 'LinkedIn' },
                   ].map(({ Icon, href, label }) => (
                     <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label}
                       className="w-10 h-10 bg-signal-white/10 rounded-full flex items-center justify-center text-brass-accent hover:bg-brass-accent hover:text-charcoal-ink transition-all duration-300 transform hover:scale-110">
@@ -184,11 +171,11 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-ivory-mist/80 text-sm">
               <p>&copy; {currentYear} DsquaredDigital. All rights reserved.</p>
               <div className="flex items-center flex-wrap gap-2 sm:gap-4">
-                <button onClick={() => onNavigate('policies')} className="hover:text-brass-accent transition-colors duration-300">Privacy Policy</button>
+                <Link to="/policies" className="hover:text-brass-accent transition-colors duration-300">Privacy Policy</Link>
                 <span>•</span>
-                <button onClick={() => onNavigate('policies')} className="hover:text-brass-accent transition-colors duration-300">Terms of Service</button>
+                <Link to="/policies" className="hover:text-brass-accent transition-colors duration-300">Terms of Service</Link>
                 <span>•</span>
-                <button onClick={() => onNavigate('policies')} className="hover:text-brass-accent transition-colors duration-300">Cookie Policy</button>
+                <Link to="/policies" className="hover:text-brass-accent transition-colors duration-300">Cookie Policy</Link>
               </div>
             </div>
             <div className="text-ivory-mist/80 text-sm mt-4 lg:mt-0">

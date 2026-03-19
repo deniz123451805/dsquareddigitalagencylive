@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header';
+import Footer from './components/Footer';
 import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
@@ -13,68 +15,51 @@ import PaidAdvertising from './pages/services/PaidAdvertising';
 import MarketingAutomation from './pages/services/MarketingAutomation';
 import BrandStrategy from './pages/services/BrandStrategy';
 import AnalyticsReporting from './pages/services/AnalyticsReporting';
-import Footer from './components/Footer';
 
-type Page = 'home' | 'about' | 'services' | 'pricing' | 'blog' | 'contact' | 'policies' |
-           'social-media' | 'seo-content' | 'paid-advertising' | 'marketing-automation' | 'brand-strategy' | 'analytics-reporting';
+// Scrolls to top on every route change
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  React.useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [pathname]);
+  return null;
+}
+
+function AppLayout() {
+  return (
+    <div className="min-h-screen bg-ivory-mist pt-20">
+      <a href="#main-content" className="skip-link">Skip to main content</a>
+      <ScrollToTop />
+      <Header />
+      <main id="main-content" className="focus:outline-none" tabIndex={-1}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/services/social-media" element={<SocialMediaManagement />} />
+          <Route path="/services/seo-content" element={<SEOContentMarketing />} />
+          <Route path="/services/paid-advertising" element={<PaidAdvertising />} />
+          <Route path="/services/marketing-automation" element={<MarketingAutomation />} />
+          <Route path="/services/brand-strategy" element={<BrandStrategy />} />
+          <Route path="/services/analytics-reporting" element={<AnalyticsReporting />} />
+          <Route path="/pricing" element={<Pricing />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/policies" element={<Policies />} />
+          {/* Catch-all: redirect unknown routes to home */}
+          <Route path="*" element={<Home />} />
+        </Routes>
+      </main>
+      <Footer />
+    </div>
+  );
+}
 
 function App() {
-  const [currentPage, setCurrentPage] = useState<Page>('home');
-
-  const handleNavigation = (page: Page) => {
-    setCurrentPage(page);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    if (window.location.hash) {
-      window.history.replaceState(null, '', window.location.pathname);
-    }
-  };
-
-  const renderPage = () => {
-    switch (currentPage) {
-      case 'home':
-        return <Home onNavigate={handleNavigation} />;
-      case 'about':
-        return <About onNavigate={handleNavigation} />;
-      case 'services':
-        return <Services onNavigate={handleNavigation} />;
-      case 'pricing':
-        return <Pricing onNavigate={handleNavigation} />;
-      case 'blog':
-        return <Blog />;
-      case 'contact':
-        return <Contact />;
-      case 'policies':
-        return <Policies onNavigate={handleNavigation} />;
-      case 'social-media':
-        return <SocialMediaManagement onNavigate={handleNavigation} />;
-      case 'seo-content':
-        return <SEOContentMarketing onNavigate={handleNavigation} />;
-      case 'paid-advertising':
-        return <PaidAdvertising onNavigate={handleNavigation} />;
-      case 'marketing-automation':
-        return <MarketingAutomation onNavigate={handleNavigation} />;
-      case 'brand-strategy':
-        return <BrandStrategy onNavigate={handleNavigation} />;
-      case 'analytics-reporting':
-        return <AnalyticsReporting onNavigate={handleNavigation} />;
-      default:
-        return <Home onNavigate={handleNavigation} />;
-    }
-  };
-
   return (
-    <>
-      <div className="min-h-screen bg-ivory-mist pt-20">
-        <a href="#main-content" className="skip-link">
-          Skip to main content
-        </a>
-        <Header currentPage={currentPage} onNavigate={handleNavigation} />
-        <main id="main-content" className="focus:outline-none" tabIndex={-1}>
-          {renderPage()}
-        </main>
-        <Footer onNavigate={handleNavigation} />
-      </div>
-    </>
+    <BrowserRouter>
+      <AppLayout />
+    </BrowserRouter>
   );
 }
 
