@@ -9,6 +9,7 @@ Hosted on **Cloudflare Pages**.
 - **Vite** (build tool)
 - **Tailwind CSS** (custom design tokens)
 - **Lucide React** (icons)
+- **React Router v6** (client-side routing)
 - **Web3Forms** (contact form — works on Cloudflare Pages)
 - **TidyCal** (booking embed)
 - **Google Analytics** (GA4)
