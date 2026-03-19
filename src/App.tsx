@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import LeopardLogo from './components/LeopardLogo.svg?react';
 import Header from './components/Header';
 import Home from './pages/Home';
 import About from './pages/About';
@@ -16,7 +15,7 @@ import BrandStrategy from './pages/services/BrandStrategy';
 import AnalyticsReporting from './pages/services/AnalyticsReporting';
 import Footer from './components/Footer';
 
-type Page = 'home' | 'about' | 'services' | 'pricing' | 'blog' | 'contact' | 'policies' | 
+type Page = 'home' | 'about' | 'services' | 'pricing' | 'blog' | 'contact' | 'policies' |
            'social-media' | 'seo-content' | 'paid-advertising' | 'marketing-automation' | 'brand-strategy' | 'analytics-reporting';
 
 function App() {
@@ -24,13 +23,7 @@ function App() {
 
   const handleNavigation = (page: Page) => {
     setCurrentPage(page);
-    // Enhanced smooth scroll to top when navigating between pages
-    window.scrollTo({ 
-      top: 0, 
-      behavior: 'smooth' 
-    });
-    
-    // Also update URL hash to ensure proper navigation
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     if (window.location.hash) {
       window.history.replaceState(null, '', window.location.pathname);
     }
@@ -71,13 +64,10 @@ function App() {
 
   return (
     <>
-      {/* COLOR SCHEME: Updated main background and added top padding for sticky header */}
       <div className="min-h-screen bg-ivory-mist pt-20">
-        {/* Skip link for accessibility */}
         <a href="#main-content" className="skip-link">
           Skip to main content
         </a>
-        
         <Header currentPage={currentPage} onNavigate={handleNavigation} />
         <main id="main-content" className="focus:outline-none" tabIndex={-1}>
           {renderPage()}
