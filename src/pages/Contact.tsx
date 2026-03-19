@@ -4,7 +4,7 @@ import { Mail, MapPin, Clock, Send, Calendar, CheckCircle, AlertCircle } from 'l
 type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
 
 // TODO: Replace with your Web3Forms access key from https://web3forms.com
-const WEB3FORMS_KEY = 'YOUR_WEB3FORMS_KEY';
+const WEB3FORMS_KEY = '40f48048-0c79-4466-852c-4ce174e282a5';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
