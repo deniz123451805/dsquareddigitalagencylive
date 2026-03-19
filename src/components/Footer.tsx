@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Mail, MapPin, Facebook, Twitter, Instagram, Linkedin, ArrowRight, CheckCircle } from 'lucide-react';
+import { Mail, MapPin, Linkedin, ArrowRight, CheckCircle } from 'lucide-react';
 
-// TODO: Replace with your Web3Forms access key from https://web3forms.com
-const WEB3FORMS_KEY = 'YOUR_WEB3FORMS_KEY';
+const WEB3FORMS_KEY = '40f48048-0c79-4466-852c-4ce174e282a5';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -147,17 +146,15 @@ const Footer: React.FC = () => {
               <div>
                 <p className="text-ivory-mist/60 text-xs uppercase tracking-wider mb-3">Follow Us</p>
                 <div className="flex space-x-3">
-                  {[
-                    { Icon: Facebook, href: 'https://facebook.com/dsquareddigital', label: 'Facebook' },
-                    { Icon: Twitter, href: 'https://twitter.com/dsquareddigital', label: 'Twitter' },
-                    { Icon: Instagram, href: 'https://instagram.com/dsquareddigital', label: 'Instagram' },
-                    { Icon: Linkedin, href: 'https://linkedin.com/company/dsquareddigital', label: 'LinkedIn' },
-                  ].map(({ Icon, href, label }) => (
-                    <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label}
-                      className="w-10 h-10 bg-signal-white/10 rounded-full flex items-center justify-center text-brass-accent hover:bg-brass-accent hover:text-charcoal-ink transition-all duration-300 transform hover:scale-110">
-                      <Icon className="h-5 w-5" />
-                    </a>
-                  ))}
+                  <a
+                    href="https://linkedin.com/company/dsquared-digital"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="LinkedIn"
+                    className="w-10 h-10 bg-signal-white/10 rounded-full flex items-center justify-center text-brass-accent hover:bg-brass-accent hover:text-charcoal-ink transition-all duration-300 transform hover:scale-110"
+                  >
+                    <Linkedin className="h-5 w-5" />
+                  </a>
                 </div>
               </div>
             </div>
