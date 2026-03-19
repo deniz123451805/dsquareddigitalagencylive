@@ -9,7 +9,7 @@ interface FooterProps {
 }
 
 // TODO: Replace with your Web3Forms access key from https://web3forms.com
-const WEB3FORMS_KEY = 'YOUR_WEB3FORMS_KEY';
+const WEB3FORMS_KEY = '40f48048-0c79-4466-852c-4ce174e282a5';
 
 const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
   const currentYear = new Date().getFullYear();
