@@ -1,4 +1,5 @@
 {
+  // DsquaredDigital — Cloudflare Worker with static assets
   "name": "dsquareddigital-agency",
   "compatibility_date": "2025-10-05",
   "assets": {
