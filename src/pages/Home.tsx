@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Star, Users, TrendingUp, Award, Play, CheckCircle, Quote, Shield, Clock, Target } from 'lucide-react';
+import { ArrowRight, Star, TrendingUp, Award, CheckCircle, Quote, Shield, Clock, Target } from 'lucide-react';
 
 type Page = 'home' | 'about' | 'services' | 'pricing' | 'blog' | 'contact';
 
@@ -22,39 +22,12 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
     {
       icon: Shield,
       title: 'Proven Expertise',
-      description: '5+ years of experience helping businesses dominate their digital markets'
+      description: 'Deep experience helping businesses establish and grow their digital presence'
     },
     {
       icon: Clock,
       title: 'Fast Implementation',
-      description: 'Quick setup and rapid results - see improvements in your first 30 days'
-    }
-  ];
-
-  const testimonials = [
-    {
-      name: 'Sarah Johnson',
-      company: 'TechStart Solutions',
-      role: 'CEO',
-      content: 'DsquaredDigital transformed our online presence completely. Our leads increased by 400% in just 3 months!',
-      rating: 5,
-      image: 'https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=150'
-    },
-    {
-      name: 'Michael Chen',
-      company: 'GrowthCorp',
-      role: 'Marketing Director',
-      content: 'The ROI we\'ve seen is incredible. Best investment we\'ve made in our marketing efforts.',
-      rating: 5,
-      image: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=150'
-    },
-    {
-      name: 'Emily Rodriguez',
-      company: 'Local Retail Plus',
-      role: 'Owner',
-      content: 'Professional, results-driven, and always available. They truly care about our success.',
-      rating: 5,
-      image: 'https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=150'
+      description: 'Quick setup and a clear strategy from day one — no waiting months to see momentum'
     }
   ];
 
@@ -67,7 +40,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
     {
       title: 'Search Domination',
       description: 'Dominate Google search results and drive qualified traffic',
-      features: ['SEO Optimization', 'Google Ads', 'Local Search']
+      features: ['SEO Optimisation', 'Google Ads', 'Local Search']
     },
     {
       title: 'AI Automation',
@@ -78,9 +51,8 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section with hero1.mp4 Video */}
+      {/* Hero Section with Video Background */}
       <section className="relative overflow-hidden min-h-screen flex items-center">
-        {/* Hero Video Background */}
         <div className="absolute inset-0 z-0">
           <video
             autoPlay
@@ -91,27 +63,22 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
             poster="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1920"
           >
             <source src="/hero1.mp4" type="video/mp4" />
-            {/* Fallback image for slow connections */}
-            <img 
-              src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1920" 
+            <img
+              src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1920"
               alt="Professional business environment"
               className="w-full h-full object-cover"
             />
           </video>
-          {/* Overlay for text readability */}
           <div className="absolute inset-0 bg-charcoal-ink/50"></div>
         </div>
-        
+
         <div className="relative container-luxury w-full">
           <div className="flex items-center justify-start min-h-screen py-20">
-            {/* Main Headline - Left Aligned */}
             <div className="max-w-3xl">
               <h1 className="font-serif font-bold text-4xl md:text-6xl lg:text-7xl text-ivory-mist leading-tight tracking-tight text-left">
                 If you don't exist online,
                 <span className="text-brass-accent block">do you really exist?</span>
               </h1>
-              
-              {/* Primary CTA */}
               <div className="flex flex-col sm:flex-row gap-4 pt-8">
                 <button
                   onClick={() => onNavigate('contact')}
@@ -132,21 +99,21 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
         </div>
       </section>
 
-      {/* Trust Indicators Section */}
+      {/* Trust Indicators */}
       <section className="py-12 bg-signal-white border-b border-charcoal-ink/10">
         <div className="container-luxury">
           <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-12 text-center">
             <div className="flex items-center space-x-2 text-charcoal-ink/80">
               <Shield className="h-5 w-5 text-brass-accent" />
-              <span className="font-semibold">Trusted by 20+ Businesses</span>
+              <span className="font-semibold">Melbourne-Based Agency</span>
             </div>
             <div className="flex items-center space-x-2 text-charcoal-ink/80">
               <Award className="h-5 w-5 text-brass-accent" />
-              <span className="font-semibold">5+ Years Experience</span>
+              <span className="font-semibold">Boutique &amp; Results-Focused</span>
             </div>
             <div className="flex items-center space-x-2 text-charcoal-ink/80">
               <Star className="h-5 w-5 text-brass-accent fill-current" />
-              <span className="font-semibold">4.9/5 Client Satisfaction</span>
+              <span className="font-semibold">AI-Powered Marketing</span>
             </div>
           </div>
         </div>
@@ -159,53 +126,30 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
             Transform Your Business Into a Digital Powerhouse
           </h2>
           <p className="body-large text-charcoal-ink/80 max-w-4xl mx-auto mb-12">
-            Stop letting your competitors steal your customers. We help ambitious businesses dominate their markets 
+            Stop letting your competitors steal your customers. We help ambitious businesses dominate their markets
             through strategic digital marketing that delivers measurable results.
           </p>
-          
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
-            <div className="text-center">
-              <div className="data-display text-4xl text-brass-accent mb-2">300%</div>
-              <div className="heading-tertiary text-charcoal-ink mb-2">Average ROI</div>
-              <p className="body-regular text-charcoal-ink/80">Our clients see significant returns on investment</p>
-            </div>
-            <div className="text-center">
-              <div className="data-display text-4xl text-brass-accent mb-2">30 Days</div>
-              <div className="heading-tertiary text-charcoal-ink mb-2">To Results</div>
-              <p className="body-regular text-charcoal-ink/80">See improvements in your first month</p>
-            </div>
-            <div className="text-center">
-              <div className="data-display text-4xl text-brass-accent mb-2">24/7</div>
-              <div className="heading-tertiary text-charcoal-ink mb-2">Support</div>
-              <p className="body-regular text-charcoal-ink/80">Always available when you need us</p>
-            </div>
-          </div>
-          
+
           <div className="bg-signal-white rounded-2xl p-8 shadow-lg border border-brass-accent/20">
             <h3 className="heading-tertiary text-charcoal-ink mb-4">Why Smart Businesses Choose Us:</h3>
             <div className="grid md:grid-cols-2 gap-4 text-left">
-              <div className="flex items-center space-x-3">
-                <CheckCircle className="h-5 w-5 text-brass-accent flex-shrink-0" />
-                <span className="body-regular text-charcoal-ink/80">Proven strategies that actually work</span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <CheckCircle className="h-5 w-5 text-brass-accent flex-shrink-0" />
-                <span className="body-regular text-charcoal-ink/80">Transparent reporting and ROI tracking</span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <CheckCircle className="h-5 w-5 text-brass-accent flex-shrink-0" />
-                <span className="body-regular text-charcoal-ink/80">Dedicated account management</span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <CheckCircle className="h-5 w-5 text-brass-accent flex-shrink-0" />
-                <span className="body-regular text-charcoal-ink/80">AI-powered automation and optimization</span>
-              </div>
+              {[
+                'Proven strategies built around your business goals',
+                'Transparent reporting and clear ROI tracking',
+                'Dedicated account management throughout',
+                'AI-powered automation and campaign optimisation'
+              ].map((item, i) => (
+                <div key={i} className="flex items-center space-x-3">
+                  <CheckCircle className="h-5 w-5 text-brass-accent flex-shrink-0" />
+                  <span className="body-regular text-charcoal-ink/80">{item}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Services Preview - Removed stats section as requested */}
+      {/* Services Preview */}
       <section className="section-padding bg-signal-white">
         <div className="container-luxury">
           <div className="text-center mb-16">
@@ -213,11 +157,11 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
               Our Winning Formula for Digital Success
             </h2>
             <p className="body-large text-charcoal-ink/80 max-w-3xl mx-auto">
-              Three core services that work together to dominate your market and 
+              Three core services that work together to dominate your market and
               turn your website into a 24/7 sales machine.
             </p>
           </div>
-          
+
           <div className="grid lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
               <div key={index} className="card-flat p-8 hover:shadow-xl transition-all duration-300 group text-center">
@@ -243,7 +187,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
               </div>
             ))}
           </div>
-          
+
           <div className="text-center mt-12">
             <button
               onClick={() => onNavigate('services')}
@@ -264,11 +208,11 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
               Why Smart Businesses Choose DsquaredDigital
             </h2>
             <p className="body-large text-charcoal-ink/80 max-w-3xl mx-auto">
-              We don't just run campaigns – we build digital empires that generate consistent, 
-              predictable revenue for your business.
+              We don’t just run campaigns – we build digital strategies that generate consistent,
+              predictable attention for your business.
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {benefits.map((benefit, index) => (
               <div key={index} className="card-elevated p-8 text-center group hover:shadow-2xl transition-all duration-300">
@@ -285,47 +229,43 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
         </div>
       </section>
 
-      {/* Testimonials Section - Social Proof */}
+      {/* What Our Clients Say — Honest section */}
       <section className="section-padding bg-signal-white">
         <div className="container-luxury">
           <div className="text-center mb-16">
             <h2 className="heading-secondary text-charcoal-ink mb-6">
-              What Our Clients Say About Working With Us
+              Built on Real Results
             </h2>
-            <p className="body-large text-charcoal-ink/80">
-              Don't just take our word for it – hear from businesses that have transformed their growth
+            <p className="body-large text-charcoal-ink/80 max-w-3xl mx-auto">
+              We’re a growing boutique agency. Every engagement is treated as a long-term partnership
+              — your success is how we grow.
             </p>
           </div>
-          
+
           <div className="grid lg:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <div key={index} className="card-elevated p-8 relative text-center">
-                <Quote className="h-8 w-8 text-brass-accent/30 absolute top-6 right-6" />
-                
-                {/* Rating */}
-                <div className="flex items-center justify-center space-x-1 mb-4">
-                  {[1, 2, 3, 4, 5].map((star) => (
-                    <Star key={star} className="h-4 w-4 text-brass-accent fill-current" />
-                  ))}
+            {[
+              {
+                icon: Target,
+                title: 'Strategy First',
+                description: 'Every campaign starts with a deep understanding of your business, your audience, and your goals — not a template.'
+              },
+              {
+                icon: TrendingUp,
+                title: 'Transparent Reporting',
+                description: 'You always know exactly what’s happening, what’s working, and what we’re optimising next.'
+              },
+              {
+                icon: Shield,
+                title: 'Your Brand, Protected',
+                description: 'We treat your brand with the same care as our own. No shortcuts, no vanity metrics, no noise.'
+              }
+            ].map((item, index) => (
+              <div key={index} className="card-elevated p-8 text-center">
+                <div className="inline-flex items-center justify-center w-14 h-14 bg-brass-accent/10 rounded-full mb-6">
+                  <item.icon className="h-7 w-7 text-brass-accent" />
                 </div>
-                
-                {/* Testimonial Content */}
-                <p className="body-regular text-charcoal-ink/80 mb-6 italic text-center">
-                  "{testimonial.content}"
-                </p>
-                
-                {/* Client Info */}
-                <div className="flex items-center justify-center space-x-4">
-                  <img
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    className="w-12 h-12 rounded-full object-cover border-2 border-brass-accent/30"
-                  />
-                  <div className="text-center">
-                    <div className="font-semibold text-charcoal-ink">{testimonial.name}</div>
-                    <div className="text-sm text-charcoal-ink/70">{testimonial.role}, {testimonial.company}</div>
-                  </div>
-                </div>
+                <h3 className="heading-tertiary text-charcoal-ink mb-4">{item.title}</h3>
+                <p className="body-regular text-charcoal-ink/80">{item.description}</p>
               </div>
             ))}
           </div>
@@ -337,19 +277,18 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
         <div className="absolute inset-0 bg-gradient-to-r from-charcoal-ink to-charcoal-900"></div>
         <div className="relative container-luxury text-center">
           <h2 className="heading-secondary text-ivory-mist mb-6">
-            Ready to 10X Your Business Growth?
+            Ready to Build Your Digital Presence?
           </h2>
           <p className="body-large text-ivory-mist/90 mb-8 max-w-3xl mx-auto">
-            Stop letting your competitors steal your customers. Book a free strategy session today and 
-            discover exactly how we'll transform your business into a digital revenue machine.
+            Book a free strategy session today and discover exactly how we’ll help your business
+            get noticed in a crowded digital world.
           </p>
-          
-          {/* Urgency Element */}
+
           <div className="inline-flex items-center bg-brass-accent/20 border border-brass-accent/30 rounded-full px-6 py-3 mb-8">
             <Clock className="h-5 w-5 text-brass-accent mr-2" />
-            <span className="text-brass-accent font-semibold">Limited Time: FREE Strategy Session (Value: $500)</span>
+            <span className="text-brass-accent font-semibold">Free 30-minute Strategy Session</span>
           </div>
-          
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
               onClick={() => onNavigate('contact')}
@@ -365,20 +304,19 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
               View Investment Options
             </button>
           </div>
-          
-          {/* Trust Indicators */}
+
           <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-8 mt-8 pt-8 border-t border-brass-accent/30">
             <div className="flex items-center space-x-2 text-ivory-mist/80">
               <Shield className="h-5 w-5 text-brass-accent" />
-              <span>100% Satisfaction Guarantee</span>
+              <span>No lock-in contracts</span>
             </div>
             <div className="flex items-center space-x-2 text-ivory-mist/80">
               <Clock className="h-5 w-5 text-brass-accent" />
-              <span>Results in 30 Days or Less</span>
+              <span>Clear strategy from Day 1</span>
             </div>
             <div className="flex items-center space-x-2 text-ivory-mist/80">
               <Award className="h-5 w-5 text-brass-accent" />
-              <span>5+ Years Proven Track Record</span>
+              <span>Melbourne-based team</span>
             </div>
           </div>
         </div>
