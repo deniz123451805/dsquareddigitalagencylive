@@ -1,5 +1,6 @@
 {
   // DsquaredDigital — Cloudflare Worker with static assets
+  // Build command: npm install && npm run build
   "name": "dsquareddigital-agency",
   "compatibility_date": "2025-10-05",
   "assets": {
