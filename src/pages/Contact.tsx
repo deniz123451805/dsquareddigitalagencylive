@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Clock, Send, Calendar, CheckCircle, AlertCircle } from 'lucide-react';
+import { Mail, MapPin, Clock, Send, Calendar, CheckCircle, AlertCircle } from 'lucide-react';
 
 type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
 
@@ -18,26 +18,20 @@ const Contact: React.FC = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus('submitting');
 
     try {
-      // Using Formspree — replace YOUR_FORM_ID with your actual Formspree endpoint ID
-      // Sign up free at https://formspree.io and create a form to get your ID
-      const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+      // Netlify Forms — submits to the hidden form registered in index.html
+      const form = e.currentTarget;
+      const data = new FormData(form);
+      data.append('form-name', 'contact');
+
+      const response = await fetch('/', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone || 'Not provided',
-          service: formData.service,
-          message: formData.message
-        })
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(data as unknown as Record<string, string>).toString()
       });
 
       if (response.ok) {
@@ -66,12 +60,8 @@ const Contact: React.FC = () => {
       {/* Hero Section */}
       <section className="section-padding bg-charcoal-ink">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="heading-primary text-brass-accent mb-6">
-            GET IN TOUCH
-          </h1>
-          <p className="heading-tertiary text-brass-accent mb-4">
-            Help us get you noticed!
-          </p>
+          <h1 className="heading-primary text-brass-accent mb-6">GET IN TOUCH</h1>
+          <p className="heading-tertiary text-brass-accent mb-4">Help us get you noticed!</p>
           <p className="body-large text-ivory-mist max-w-4xl mx-auto">
             Contact us to enquire more as to how we can assist in your digital marketing needs.
           </p>
@@ -82,14 +72,12 @@ const Contact: React.FC = () => {
       <section className="section-padding bg-gradient-to-br from-ivory-mist to-signal-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="lg:grid lg:grid-cols-12 lg:gap-8">
+
             {/* Contact Form */}
             <div className="lg:col-span-8">
               <div className="card-elevated p-8 lg:p-12">
-                <h2 className="heading-secondary text-charcoal-ink mb-8">
-                  Let's Start a Conversation
-                </h2>
+                <h2 className="heading-secondary text-charcoal-ink mb-8">Let's Start a Conversation</h2>
 
-                {/* Success Message */}
                 {status === 'success' && (
                   <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-xl flex items-start space-x-3">
                     <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
@@ -100,29 +88,40 @@ const Contact: React.FC = () => {
                   </div>
                 )}
 
-                {/* Error Message */}
                 {status === 'error' && (
                   <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-xl flex items-start space-x-3">
                     <AlertCircle className="h-5 w-5 text-red-600 flex-shrink-0 mt-0.5" />
                     <div>
                       <p className="font-semibold text-red-800">Something went wrong.</p>
-                      <p className="text-red-700 text-sm">Please try again or email us directly at info@dsquareddigitalagency.com</p>
+                      <p className="text-red-700 text-sm">
+                        Please try again or email us directly at{' '}
+                        <a href="mailto:info@dsquareddigitalagency.com" className="underline">
+                          info@dsquareddigitalagency.com
+                        </a>
+                      </p>
                     </div>
                   </div>
                 )}
 
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form
+                  name="contact"
+                  method="POST"
+                  onSubmit={handleSubmit}
+                  className="space-y-6"
+                >
+                  {/* Netlify hidden fields */}
+                  <input type="hidden" name="form-name" value="contact" />
+                  <div hidden>
+                    <input name="bot-field" />
+                  </div>
+
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="name" className="form-label">Full Name *</label>
                       <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleInputChange}
-                        required
-                        className="form-input"
+                        type="text" id="name" name="name"
+                        value={formData.name} onChange={handleInputChange}
+                        required className="form-input"
                         placeholder="Your full name"
                         disabled={status === 'submitting'}
                       />
@@ -130,13 +129,9 @@ const Contact: React.FC = () => {
                     <div>
                       <label htmlFor="email" className="form-label">Email Address *</label>
                       <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        required
-                        className="form-input"
+                        type="email" id="email" name="email"
+                        value={formData.email} onChange={handleInputChange}
+                        required className="form-input"
                         placeholder="your@email.com"
                         disabled={status === 'submitting'}
                       />
@@ -147,11 +142,8 @@ const Contact: React.FC = () => {
                     <div>
                       <label htmlFor="phone" className="form-label">Phone Number</label>
                       <input
-                        type="tel"
-                        id="phone"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleInputChange}
+                        type="tel" id="phone" name="phone"
+                        value={formData.phone} onChange={handleInputChange}
                         className="form-input"
                         placeholder="+61 4XX XXX XXX"
                         disabled={status === 'submitting'}
@@ -160,18 +152,13 @@ const Contact: React.FC = () => {
                     <div>
                       <label htmlFor="service" className="form-label">Services Needed *</label>
                       <select
-                        id="service"
-                        name="service"
-                        value={formData.service}
-                        onChange={handleInputChange}
-                        required
-                        className="form-input"
+                        id="service" name="service"
+                        value={formData.service} onChange={handleInputChange}
+                        required className="form-input"
                         disabled={status === 'submitting'}
                       >
                         <option value="">Select a service</option>
-                        {services.map((service, index) => (
-                          <option key={index} value={service}>{service}</option>
-                        ))}
+                        {services.map((s, i) => <option key={i} value={s}>{s}</option>)}
                       </select>
                     </div>
                   </div>
@@ -179,14 +166,11 @@ const Contact: React.FC = () => {
                   <div>
                     <label htmlFor="message" className="form-label">Tell us about your project *</label>
                     <textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      required
-                      rows={6}
+                      id="message" name="message"
+                      value={formData.message} onChange={handleInputChange}
+                      required rows={6}
                       className="form-input resize-none"
-                      placeholder="Tell us about your business, goals, and how we can help you succeed..."
+                      placeholder="Tell us about your business, goals, and how we can help..."
                       disabled={status === 'submitting'}
                     />
                   </div>
@@ -199,8 +183,8 @@ const Contact: React.FC = () => {
                     {status === 'submitting' ? (
                       <>
                         <svg className="animate-spin -ml-1 mr-3 h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
                         </svg>
                         Sending...
                       </>
@@ -215,10 +199,9 @@ const Contact: React.FC = () => {
               </div>
             </div>
 
-            {/* Contact Information */}
+            {/* Contact Info Sidebar */}
             <div className="lg:col-span-4 mt-12 lg:mt-0">
               <div className="space-y-8">
-                {/* Contact Details */}
                 <div className="card-elevated p-8">
                   <h3 className="heading-tertiary text-charcoal-ink mb-6">Get in Touch</h3>
                   <div className="space-y-6">
@@ -228,15 +211,12 @@ const Contact: React.FC = () => {
                       </div>
                       <div>
                         <h4 className="body-regular font-semibold text-charcoal-ink">Email Us</h4>
-                        <a
-                          href="mailto:info@dsquareddigitalagency.com"
-                          className="body-regular text-charcoal-ink/80 hover:text-brass-accent transition-colors"
-                        >
+                        <a href="mailto:info@dsquareddigitalagency.com"
+                          className="body-regular text-charcoal-ink/80 hover:text-brass-accent transition-colors">
                           info@dsquareddigitalagency.com
                         </a>
                       </div>
                     </div>
-
                     <div className="flex items-start space-x-4">
                       <div className="flex-shrink-0 w-12 h-12 bg-brass-accent rounded-full flex items-center justify-center">
                         <MapPin className="h-6 w-6 text-ivory-mist" />
@@ -246,7 +226,6 @@ const Contact: React.FC = () => {
                         <p className="body-regular text-charcoal-ink/80">Melbourne, Australia</p>
                       </div>
                     </div>
-
                     <div className="flex items-start space-x-4">
                       <div className="flex-shrink-0 w-12 h-12 bg-brass-accent rounded-full flex items-center justify-center">
                         <Clock className="h-6 w-6 text-ivory-mist" />
@@ -260,7 +239,6 @@ const Contact: React.FC = () => {
                   </div>
                 </div>
 
-                {/* TidyCal Booking */}
                 <div className="card-elevated p-8">
                   <h3 className="heading-tertiary text-charcoal-ink mb-4">Book a Free Strategy Session</h3>
                   <p className="body-regular text-charcoal-ink/80 mb-6">

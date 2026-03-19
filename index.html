@@ -22,6 +22,22 @@
     <script src="https://asset-tidycal.b-cdn.net/js/embed.js" async></script>
   </head>
   <body>
+    <!--
+      Netlify Forms: These hidden forms register with Netlify at build time.
+      They mirror the React forms in Contact.tsx and Footer.tsx.
+      Netlify matches submissions by the 'name' attribute.
+    -->
+    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="tel" name="phone" />
+      <select name="service"></select>
+      <textarea name="message"></textarea>
+    </form>
+    <form name="newsletter" netlify netlify-honeypot="bot-field" hidden>
+      <input type="email" name="email" />
+    </form>
+
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
