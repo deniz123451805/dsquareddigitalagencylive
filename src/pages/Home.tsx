@@ -25,7 +25,7 @@ const Home: React.FC = () => {
         <div className="absolute inset-0 z-0">
           <video autoPlay loop muted playsInline className="w-full h-full object-cover"
             poster="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1920">
-            <source src="/hero1.mp4" type="video/mp4" />
+            <source src="https://pub-4876dba2f5bd41f2b53a4f2a5a4cd596.r2.dev/hero1.mp4" type="video/mp4" />
             <img src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1920"
               alt="Professional business environment" className="w-full h-full object-cover" />
           </video>
@@ -122,7 +122,7 @@ const Home: React.FC = () => {
         <div className="container-luxury">
           <div className="text-center mb-16">
             <h2 className="heading-secondary text-charcoal-ink mb-6">Why Smart Businesses Choose DsquaredDigital</h2>
-            <p className="body-large text-charcoal-ink/80 max-w-3xl mx-auto">We don’t just run campaigns – we build digital strategies that generate consistent, predictable attention for your business.</p>
+            <p className="body-large text-charcoal-ink/80 max-w-3xl mx-auto">We don't just run campaigns – we build digital strategies that generate consistent, predictable attention for your business.</p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {benefits.map((benefit, index) => (
@@ -143,12 +143,12 @@ const Home: React.FC = () => {
         <div className="container-luxury">
           <div className="text-center mb-16">
             <h2 className="heading-secondary text-charcoal-ink mb-6">Built on Real Results</h2>
-            <p className="body-large text-charcoal-ink/80 max-w-3xl mx-auto">We’re a growing boutique agency. Every engagement is treated as a long-term partnership — your success is how we grow.</p>
+            <p className="body-large text-charcoal-ink/80 max-w-3xl mx-auto">We're a growing boutique agency. Every engagement is treated as a long-term partnership — your success is how we grow.</p>
           </div>
           <div className="grid lg:grid-cols-3 gap-8">
             {[
               { icon: Target, title: 'Strategy First', description: 'Every campaign starts with a deep understanding of your business, your audience, and your goals — not a template.' },
-              { icon: TrendingUp, title: 'Transparent Reporting', description: 'You always know exactly what’s happening, what’s working, and what we’re optimising next.' },
+              { icon: TrendingUp, title: 'Transparent Reporting', description: 'You always know exactly what's happening, what's working, and what we're optimising next.' },
               { icon: Shield, title: 'Your Brand, Protected', description: 'We treat your brand with the same care as our own. No shortcuts, no vanity metrics, no noise.' },
             ].map((item, index) => (
               <div key={index} className="card-elevated p-8 text-center">
@@ -168,7 +168,7 @@ const Home: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-charcoal-ink to-charcoal-900"></div>
         <div className="relative container-luxury text-center">
           <h2 className="heading-secondary text-ivory-mist mb-6">Ready to Build Your Digital Presence?</h2>
-          <p className="body-large text-ivory-mist/90 mb-8 max-w-3xl mx-auto">Book a free strategy session today and discover exactly how we’ll help your business get noticed in a crowded digital world.</p>
+          <p className="body-large text-ivory-mist/90 mb-8 max-w-3xl mx-auto">Book a free strategy session today and discover exactly how we'll help your business get noticed in a crowded digital world.</p>
           <div className="inline-flex items-center bg-brass-accent/20 border border-brass-accent/30 rounded-full px-6 py-3 mb-8">
             <Clock className="h-5 w-5 text-brass-accent mr-2" />
             <span className="text-brass-accent font-semibold">Free 30-minute Strategy Session</span>
