@@ -3,6 +3,9 @@ import { Mail, MapPin, Clock, Send, Calendar, CheckCircle, AlertCircle } from 'l
 
 type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
 
+// TODO: Replace with your Web3Forms access key from https://web3forms.com
+const WEB3FORMS_KEY = 'YOUR_WEB3FORMS_KEY';
+
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -23,18 +26,24 @@ const Contact: React.FC = () => {
     setStatus('submitting');
 
     try {
-      // Netlify Forms — submits to the hidden form registered in index.html
-      const form = e.currentTarget;
-      const data = new FormData(form);
-      data.append('form-name', 'contact');
-
-      const response = await fetch('/', {
+      const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(data as unknown as Record<string, string>).toString()
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          subject: `New Enquiry from ${formData.name} — ${formData.service || 'General'}`,
+          from_name: 'DsquaredDigital Website',
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone || 'Not provided',
+          service: formData.service,
+          message: formData.message,
+          botcheck: ''
+        })
       });
 
-      if (response.ok) {
+      const result = await response.json();
+      if (result.success) {
         setStatus('success');
         setFormData({ name: '', email: '', phone: '', service: '', message: '' });
       } else {
@@ -103,17 +112,9 @@ const Contact: React.FC = () => {
                   </div>
                 )}
 
-                <form
-                  name="contact"
-                  method="POST"
-                  onSubmit={handleSubmit}
-                  className="space-y-6"
-                >
-                  {/* Netlify hidden fields */}
-                  <input type="hidden" name="form-name" value="contact" />
-                  <div hidden>
-                    <input name="bot-field" />
-                  </div>
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  {/* Web3Forms honeypot spam filter */}
+                  <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
 
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
@@ -224,6 +225,7 @@ const Contact: React.FC = () => {
                       <div>
                         <h4 className="body-regular font-semibold text-charcoal-ink">Location</h4>
                         <p className="body-regular text-charcoal-ink/80">Melbourne, Australia</p>
+
                       </div>
                     </div>
                     <div className="flex items-start space-x-4">
@@ -257,6 +259,7 @@ const Contact: React.FC = () => {
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </section>

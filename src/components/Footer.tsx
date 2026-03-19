@@ -8,6 +8,9 @@ interface FooterProps {
   onNavigate: (page: Page) => void;
 }
 
+// TODO: Replace with your Web3Forms access key from https://web3forms.com
+const WEB3FORMS_KEY = 'YOUR_WEB3FORMS_KEY';
+
 const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
   const currentYear = new Date().getFullYear();
   const [newsletterStatus, setNewsletterStatus] = useState<'idle' | 'success' | 'error'>('idle');
@@ -32,15 +35,24 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
 
   const handleNewsletterSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const data = new FormData(e.currentTarget);
-    data.append('form-name', 'newsletter');
+    const formData = new FormData(e.currentTarget);
+    const email = formData.get('email') as string;
+
     try {
-      const response = await fetch('/', {
+      const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(data as unknown as Record<string, string>).toString()
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          subject: 'New Newsletter Subscription — DsquaredDigital',
+          from_name: 'DsquaredDigital Website',
+          email,
+          message: `New newsletter subscription request from: ${email}`,
+          botcheck: ''
+        })
       });
-      if (response.ok) {
+      const result = await response.json();
+      if (result.success) {
         setNewsletterStatus('success');
         (e.currentTarget as HTMLFormElement).reset();
       } else {
@@ -127,14 +139,8 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                   <span>You're subscribed — thanks!</span>
                 </div>
               ) : (
-                <form
-                  name="newsletter"
-                  method="POST"
-                  onSubmit={handleNewsletterSubmit}
-                  className="flex flex-col space-y-3 mb-6"
-                >
-                  <input type="hidden" name="form-name" value="newsletter" />
-                  <div hidden><input name="bot-field" /></div>
+                <form onSubmit={handleNewsletterSubmit} className="flex flex-col space-y-3 mb-6">
+                  <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
                   <input
                     type="email" name="email"
                     placeholder="Enter your email"
@@ -168,6 +174,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 </div>
               </div>
             </div>
+
           </div>
         </div>
 

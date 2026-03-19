@@ -1,14 +1,15 @@
 # DsquaredDigital Agency Website
 
 Premium digital marketing agency website built with React, TypeScript, Vite, and Tailwind CSS.
+Hosted on **Cloudflare Pages**.
 
 ## Tech Stack
 
 - **React 18** + **TypeScript**
 - **Vite** (build tool)
-- **Tailwind CSS** (styling with custom design tokens)
+- **Tailwind CSS** (custom design tokens)
 - **Lucide React** (icons)
-- **Formspree** (contact form backend)
+- **Web3Forms** (contact form — works on Cloudflare Pages)
 - **TidyCal** (booking embed)
 - **Google Analytics** (GA4)
 
@@ -21,19 +22,24 @@ npm run dev
 
 ## Setup Required
 
-### 1. Contact Form (Formspree)
-Sign up at [formspree.io](https://formspree.io), create a new form, and replace `YOUR_FORM_ID` in:
-- `src/pages/Contact.tsx`
-- `src/components/Footer.tsx`
+### 1. Contact Form (Web3Forms)
+1. Go to [web3forms.com](https://web3forms.com)
+2. Enter your email address to receive your free access key
+3. Replace `YOUR_WEB3FORMS_KEY` in:
+   - `src/pages/Contact.tsx`
+   - `src/components/Footer.tsx`
+
+Free tier: 250 submissions/month. No account or credit card needed.
 
 ### 2. Hero Video
-The hero video (`hero1.mp4`) is excluded from Git due to its file size (~6MB). Host it on a CDN (Cloudflare Stream, Bunny.net, or similar) and update the `src` in `src/pages/Home.tsx`.
+The hero video (`hero1.mp4`) is excluded from Git due to file size. Host it on a CDN
+(Cloudflare Stream, Bunny.net, or R2) and update the `src` in `src/pages/Home.tsx`.
 
 ### 3. TidyCal Booking
-Update the `data-path` in `src/pages/Contact.tsx` to match your actual TidyCal booking URL path.
+Update `data-path` in `src/pages/Contact.tsx` with your actual TidyCal booking URL path.
 
 ### 4. Social Media Links
-Update social media hrefs in `src/components/Footer.tsx` with your real profile URLs.
+Update social media `href` values in `src/components/Footer.tsx` with your real URLs.
 
 ## Design Tokens
 
@@ -52,11 +58,17 @@ src/
   pages/          # Home, About, Services, Pricing, Blog, Contact, Policies
   pages/services/ # Individual service sub-pages
   index.css       # Global styles and design system
-  App.tsx         # Root component and navigation state
+  App.tsx         # Root app and navigation state
   main.tsx        # React entry point
-public/           # Static assets (logo, favicon)
+public/
+  _redirects      # Cloudflare Pages SPA routing fix
+  dsquaredlogo.png
+  2.png           # Favicon
 ```
 
-## Deployment
+## Deployment (Cloudflare Pages)
 
-Deploy to Vercel or Netlify with zero configuration. Both support SPA routing out of the box with a `_redirects` or `vercel.json` config if needed.
+1. Connect your GitHub repo in the Cloudflare Pages dashboard
+2. Build command: `npm run build`
+3. Output directory: `dist`
+4. The `public/_redirects` file handles SPA routing automatically
